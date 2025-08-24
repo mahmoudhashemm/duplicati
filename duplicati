@@ -16,3 +16,15 @@ services:
       - /mnt/backup/:/backups
       - /opt/:/source
     restart: unless-stopped
+   networks:
+      net6:
+        ipv4_address: 10.0.0.2
+networks:
+  net6:
+    name: duplicati-2
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/29
+          gateway: 10.0.0.1
+          ip_range: 10.0.0.0/29
