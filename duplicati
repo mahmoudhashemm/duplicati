@@ -7,18 +7,20 @@ services:
       - PUID=0
       - PGID=0
       - TZ=Africa/Cairo
-      - CLI_ARGS= #optional
+      # - WEBPASSWORD=ضع-كلمة-سر-الواجهة-هنا  # (اختياري)
+      # - CLI_ARGS=                              # (اختياري)
     ports:
-      - 8200:8200
+      - "8200:8200"
     volumes:
       - /some/path:/some/path
       - ./config:/config
       - /mnt/backup/:/backups
       - /opt/:/source
-    restart: unless-stopped
-   networks:
+    networks:
       net6:
         ipv4_address: 10.0.0.2
+    restart: unless-stopped
+
 networks:
   net6:
     name: duplicati-2
